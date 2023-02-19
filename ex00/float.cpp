@@ -20,7 +20,13 @@ int StringTofloat(char *str)
 		}
 		for (; isdigit(str[i]); i++);
 		if (str[i] == '\0' || str[i] == 'f' || str[i] == 'F')
+		{
+			float number = static_cast<float>(atof(str));
+			std::cout.setf(std::ios::fixed);
+			std::cout.precision(8);
+			std::cout << number << "f" << std::endl;
 			return 0;
+		}
 	}
 	else if (str[i] == 'f' || str[i] == 'F')
 	{
@@ -37,9 +43,9 @@ int StringTofloat(char *str)
 	if (str[i] == '\0')
 	{
 		float number = static_cast<float>(atof(str));
-		   std::cout.setf(std::ios::fixed);
-		   std::cout.precision(1);
-		   std::cout << number << "f" << std::endl;
+		std::cout.setf(std::ios::fixed);
+		std::cout.precision(1);
+		std::cout << number << "f" << std::endl;
 		return 0;
 	}
 	std::cout << "ERROR!" << std::endl;

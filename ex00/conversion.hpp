@@ -16,7 +16,6 @@ public:
 	int StringToInt();
 	int StringTofloat(char *arg);
 	int SringToDouble();
-	bool CheckNumber(char *arg);
 
 	conversion();
 	~conversion();
