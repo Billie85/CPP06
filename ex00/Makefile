@@ -1,7 +1,8 @@
 NAME	= ex00
 
 SRCS	= main.cpp \
-		  float.cpp
+		  float.cpp \
+		  double.cpp
 
 OBJS		= $(SRCS:%.cpp=%.o)
 

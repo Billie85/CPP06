@@ -24,7 +24,7 @@ int StringTofloat(char *str)
 			float number = static_cast<float>(atof(str));
 			std::cout.setf(std::ios::fixed);
 			std::cout.precision(8);
-			std::cout << number << "f" << std::endl;
+			std::cout << "float: " <<number << "f" << std::endl;
 			return 0;
 		}
 	}
@@ -36,7 +36,7 @@ int StringTofloat(char *str)
 			float number = static_cast<float>(atof(str));
 			std::cout.setf(std::ios::fixed);
 			std::cout.precision(8);
-			std::cout << number << "f" << std::endl;
+			std::cout << "float: " <<number << "f" << std::endl;
 			return 0;
 		}
 	}
@@ -45,7 +45,7 @@ int StringTofloat(char *str)
 		float number = static_cast<float>(atof(str));
 		std::cout.setf(std::ios::fixed);
 		std::cout.precision(1);
-		std::cout << number << "f" << std::endl;
+		std::cout << "float: " <<number << "f" << std::endl;
 		return 0;
 	}
 	std::cout << "ERROR!" << std::endl;

@@ -15,7 +15,7 @@ public:
 	int StringToChar();
 	int StringToInt();
 	int StringTofloat(char *arg);
-	int SringToDouble();
+	int SringToDouble(char *str);
 
 	conversion();
 	~conversion();
