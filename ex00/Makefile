@@ -1,8 +1,10 @@
-NAME	= ex00
+NAME	= convert
 
 SRCS	= main.cpp \
 		  float.cpp \
-		  double.cpp
+		  double.cpp \
+		  int.cpp \
+		  char.cpp
 
 OBJS		= $(SRCS:%.cpp=%.o)
 

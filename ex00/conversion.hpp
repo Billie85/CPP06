@@ -12,9 +12,9 @@ class conversion
 private:
 	std::string OriginStr;
 public:
-	int StringToChar();
-	int StringToInt();
-	int StringTofloat(char *arg);
+	int StringToChar(char *str);
+	int StringToInt(char *str);
+	int StringTofloat(char *str);
 	int SringToDouble(char *str);
 
 	conversion();

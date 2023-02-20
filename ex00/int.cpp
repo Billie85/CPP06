@@ -1,6 +1,6 @@
 #include "conversion.hpp"
 
-int StringTofloat(char *str)
+int StringToInt(char *str)
 {
 	size_t i = 0;
 
@@ -21,10 +21,8 @@ int StringTofloat(char *str)
 		for (; isdigit(str[i]); i++);
 		if (str[i] == '\0' || str[i] == 'f' || str[i] == 'F')
 		{
-			float number = static_cast<float>(atof(str));
-			std::cout.setf(std::ios::fixed);
-			std::cout.precision(1);
-			std::cout << "float: " <<number << "f" << std::endl;
+			int number = static_cast<int>(atof(str));
+			std::cout << "int: " <<number << std::endl;
 			return 0;
 		}
 	}
@@ -33,19 +31,15 @@ int StringTofloat(char *str)
 		i++;
 		if (str[i] == '\0')
 		{
-			float number = static_cast<float>(atof(str));
-			std::cout.setf(std::ios::fixed);
-			std::cout.precision(1);
-			std::cout << "float: " <<number << "f" << std::endl;
+			int number = static_cast<int>(atof(str));
+			std::cout << "int: " <<number << std::endl;
 			return 0;
 		}
 	}
 	if (str[i] == '\0')
 	{
-		float number = static_cast<float>(atof(str));
-		std::cout.setf(std::ios::fixed);
-		std::cout.precision(1);
-		std::cout << "float: " <<number << "f" << std::endl;
+		int number = static_cast<int>(atof(str));
+		std::cout << "int: " <<number << std::endl;
 		return 0;
 	}
 	std::cout << "ERROR!" << std::endl;

@@ -19,12 +19,24 @@ int SringToDouble(char *str)
 			return 1;
 		}
 		for (; isdigit(str[i]); i++);
+		if (str[i] == '\0' || str[i] == 'f' || str[i] == 'F')
+		{
+			double number = static_cast<double>(atof(str));
+			std::cout.setf(std::ios::fixed);
+			std::cout.precision(1);
+			std::cout << "double: " <<number << std::endl;
+			return 0;
+		}
+	}
+	else if (str[i] == 'f' || str[i] == 'F')
+	{
+		i++;
 		if (str[i] == '\0')
 		{
 			double number = static_cast<double>(atof(str));
 			std::cout.setf(std::ios::fixed);
-			std::cout.precision(15);
-			std::cout << "double: " << number << std::endl;
+			std::cout.precision(1);
+			std::cout << "double: " <<number << std::endl;
 			return 0;
 		}
 	}
@@ -33,7 +45,7 @@ int SringToDouble(char *str)
 		double number = static_cast<double>(atof(str));
 		std::cout.setf(std::ios::fixed);
 		std::cout.precision(1);
-		std::cout << "double: " << number << std::endl;
+		std::cout << "double: " <<number << std::endl;
 		return 0;
 	}
 	std::cout << "ERROR!" << std::endl;
