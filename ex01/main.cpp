@@ -26,8 +26,6 @@ int main(void)
     std::cout << "Deserialize data" << std::endl;
     std::cout << "X is ->" << d->x << std::endl;
     std::cout << "Y is ->" << d->y << std::endl;
-
-    delete d;
     /* deserialize 関数は、動的に割り当てられたメモリを返すため、
     メモリリークを防ぐために、 delete 演算子を使用して d が指すメモリを解放しました。 */
     return 0;
