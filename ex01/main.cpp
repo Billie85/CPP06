@@ -17,6 +17,7 @@ int main(void)
     std::cout << "X is ->" << data.x << std::endl;
     std::cout << "Y is ->" << data.y << std::endl;
 
+    //メモリ
     std::cout << "=========================="<< std::endl;
     std::cout << "serialize result" << std::endl;
     std::cout << "serialize " << u << std::endl;
