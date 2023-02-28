@@ -1,84 +1,93 @@
 #include "Base.hpp"
-#include "classABC.hpp"
-#include  <unistd.h>
+
+Base::~Base()
+{
+	;
+}
 
 Base *generate(void)
 {
-	int i;
-	i = rand() % 3;
-	if (i == 0)
+	int result = rand() % 3;
+	switch (result)
 	{
-		std::cout << "A" << std::endl;
-		return (new A());
+		case 0:
+			return new A();
+		case 1:
+			return new B();
+		case 2:
+			return new C();
+		default :
+			return(NULL);
 	}
-	else if (i == 1)
-	{
-		std::cout << "B" << std::endl;
-		return (new B());
-	}
-	std::cout << "C" << std::endl;
-	return(new C());
 }
 
-void identify(Base *p)
+void identify(Base* p)
 {
-	if (dynamic_cast<A*>(p))//キャストできた時。
+	if(dynamic_cast<A*>(p))
+	{
+		std::cout << "->" << dynamic_cast<A*>(p) << std::endl;
 		std::cout << "A" << std::endl;
+	}
 	else if (dynamic_cast<B*>(p))
+	{
+		std::cout << "->" << dynamic_cast<B*>(p) << std::endl;
 		std::cout << "B" << std::endl;
+	}
 	else if (dynamic_cast<C*>(p))
+	{
+		std::cout << "->" << dynamic_cast<C*>(p) << std::endl;
 		std::cout << "C" << std::endl;
+	}
+	else
+		std::cout << "ERROR" << std::endl;
 }
 
 void identify(Base& p)
 {
 	try
 	{
-		(void)dynamic_cast<A&>(p);
+		A &a = dynamic_cast<A&>(p);
+		std::cout << "->" << &a <<std::endl;
+		std::cout << "A" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (...)
 	{
 		try
 		{
-			(void)dynamic_cast<B&>(p);
+			B &b = dynamic_cast<B&>(p);
+			std::cout << "->" << &b <<std::endl;
+			std::cout << "B" << std::endl;
 		}
-		catch(const std::exception& e)
+		catch(...)
 		{
 			try
 			{
-				(void)dynamic_cast<C&>(p);
+				C &c = dynamic_cast<C&>(p);
+				std::cout << "->" << &c <<std::endl;
+				std::cout << "C" << std::endl;
 			}
-			catch(const std::exception& e)
+			catch(...)
 			{
-				std::cout << "ANOTHER ERROR" << std::endl;
-				return ;
+				std::cout << "ERROR" << std::endl;
 			}
-			std::cout << "C" << std::endl;
-			return ;
-			
 		}
-			std::cout << "B" << std::endl;
-			return ;
-		
 	}
-	std::cout << "A" << std::endl;
-	return ;
 }
 
-Base *generate(void);
-void identify(Base& p);
-void identify(Base *p);
 
-int main(void)
+int main() 
 {
-	while (1)
-	{
-		Base *b = generate();
-		//std::cout << b << std::endl;
-		identify(b);
-		identify(*b);
-		delete(b);
-		sleep(1);
-		std::cout << "=======" << std::endl;
-	}
+	std::cout << "==== identify result =====" << std::endl;
+	Base *result = generate();
+	std::cout << "->" << result << std::endl;
+	identify(result);
+
+	std::cout << std::endl;
+
+
+	std::cout << "==== identify2 result =====" << std::endl;
+	Base *result2 = generate();
+	std::cout << "->" << result2 << std::endl;
+	identify(*result2);
+	return 0;
 }

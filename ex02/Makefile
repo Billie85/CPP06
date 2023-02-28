@@ -1,8 +1,6 @@
-NAME	= ex02
+NAME	= Identifyrealtype
 
-SRCS	= main.cpp \
-		  Base.cpp \
-		  classABC.cpp
+SRCS	= main.cpp 
 
 OBJS		= $(SRCS:%.cpp=%.o)
 
